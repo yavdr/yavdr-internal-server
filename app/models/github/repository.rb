@@ -15,4 +15,12 @@ class Github::Repository < ActiveRecord::Base
     build_type.to_s == 'buildable' or autobuild?
   end
 
+  def role_yavdr?
+    role == 'yavdr'
+  end
+
+  def role_logo?
+    role == 'logo'
+  end
+
 end
