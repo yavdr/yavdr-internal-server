@@ -1,5 +1,6 @@
 class Logo < ActiveRecord::Base
   has_many :names, :class_name => "LogoName"
+  
   has_attached_file :logo,
                     :path => "public/system/:class/:id/:style.:extension",
                     :url => "/system/:class/:id/:style.:extension",
