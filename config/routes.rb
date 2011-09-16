@@ -6,4 +6,9 @@ YavdrInternalServer::Application.routes.draw do
       get :export
     end
   end
+
+  namespace :github do
+    post "api/hook", :to => "api#hook"
+  end
+
 end
