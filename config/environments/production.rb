@@ -58,5 +58,7 @@ YavdrInternalServer::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.action_mailer.default_url_options = { :host => 'htz04.phatserver.de' }
+  config.action_mailer.default_url_options = { :host => 'htz04.phatserver.de/yavdr-internal-server' }
+  config.action_mailer.smtp_settings = { :address => "mail.phatserver.de" }
+
 end
