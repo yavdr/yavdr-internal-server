@@ -19,7 +19,10 @@ test:
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
-  pool: 5
+  adapter: postgresql
+  database: yavdr-internal-server
   timeout: 5000
+  encoding: utf8
+  username: yavdr
+  host: localhost
+
