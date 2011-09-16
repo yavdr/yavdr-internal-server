@@ -1,0 +1,17 @@
+=nested_form_for  @logo do |f|
+  -unless @logo.new_record?
+    .logo
+      = image_tag @logo.logo.url
+
+  = debug @logo.errors.to_a
+
+  %h3 Bild
+  %p= f.label :logo
+  %p= f.file_field :logo
+  %h3 Name
+  = f.fields_for :names do |fn|
+    %p= fn.text_field :name
+  = f.link_to_add "Neuen Sendernamen", :names
+
+  %p= f.submit
+

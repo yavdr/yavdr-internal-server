@@ -1,0 +1,16 @@
+%h2 Logodetail
+
+=content_tag_for :div, @logo do
+  .logo
+    %h3 Logo
+    = image_tag @logo.logo.url
+  .names
+    %h3 Sendernamen
+    %ul
+      -@logo.names.each do |logo_name|
+        %li= logo_name.name
+    .options
+      %h3 Optionen
+      %ul
+        %li= link_to "Ändern", [:edit, @logo]
+        %li= link_to "Löschen", @logo, :method => :delete, :confirm => "Wirklich löschen?"
