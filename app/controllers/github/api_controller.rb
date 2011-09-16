@@ -9,6 +9,8 @@ class Github::ApiController < ApplicationController
           url: payload['repository']['url']
         }
       )
+
+      render :json => { :status => true }
     end
   end
 end
