@@ -1,6 +1,9 @@
 # encoding: utf-8
 class LogosController < ApplicationController
-  before_filter :load_logo, :only => [:show, :update, :edit, :destroy]
+  before_filter :authenticate_user!
+  load_and_authorize_resource
+
+#  before_filter :load_logo, :only => [:show, :update, :edit, :destroy]
 
   def index
     @logos = Logo.includes(:names).order("LOWER(logo_names.name)").all
