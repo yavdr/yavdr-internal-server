@@ -11,6 +11,6 @@
       =content_tag_for :tr, repository do
         %td= repository.name
         %td= link_to repository.url, repository.url, :target => '_blank'
-        %td= repository.autobuild? ? 'Automatisch bauen' : repository.buildable? ? 'Baubar' : 'Nicht baubar'
+        %td= repository.autobuild? ? 'Automatisch bauen' : (repository.buildable? ? 'Baubar' : 'Nicht baubar')
         %td= link_to "Ändern", [:edit, repository]
 

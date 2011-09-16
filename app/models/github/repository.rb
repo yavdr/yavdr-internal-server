@@ -8,11 +8,11 @@ class Github::Repository < ActiveRecord::Base
   default_scope order(:name)
 
   def autobuild?
-    build_type.to_s == 'autobuild' or buildable?
+    build_type.to_s == 'autobuild'
   end
 
   def buildable?
-    build_type.to_s == 'buildable'
+    build_type.to_s == 'buildable' or autobuild?
   end
 
 end
