@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110916170216) do
+ActiveRecord::Schema.define(:version => 20110916201932) do
 
   create_table "github_repositories", :force => true do |t|
     t.string   "name",                          :null => false
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20110916170216) do
     t.boolean  "active",     :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "build_type"
   end
 
   create_table "logo_names", :force => true do |t|

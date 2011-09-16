@@ -1,0 +1,9 @@
+%h2 Repository ändern
+= form_for  @repository do |f|
+
+  =debug @repository.errors
+
+  %p= f.label :build_type
+  %p= f.select :build_type, [['Nicht baubar', ''], ['Baubar', 'buildable'], ['Automtisch bauen', 'autobuild']]
+  %p= f.submit
+
