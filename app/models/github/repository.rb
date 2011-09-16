@@ -5,6 +5,8 @@ class Github::Repository < ActiveRecord::Base
 
   attr_accessible :build_type
 
+  default_scope order(:name)
+
   def autobuild?
     build_type.to_s == 'autobuild' or buildable?
   end
