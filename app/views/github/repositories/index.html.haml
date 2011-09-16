@@ -1,0 +1,12 @@
+%h2 Repositories
+
+%table
+  %thead
+    %th Name
+    %th URL
+  %tbody
+    -@repositories.each do |repository|
+      =content_tag_for :tr, repository do
+        %td= repository.name
+        %td= link_to repository.url, repository.url, :target => '_blank'
+

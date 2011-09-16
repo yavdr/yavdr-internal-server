@@ -4,7 +4,7 @@ class Ability
   def initialize(user)
 
     if user.yavdr?
-      can :manage, Logo
+      can :manage, :all
     else
     end
 

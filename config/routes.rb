@@ -11,6 +11,7 @@ YavdrInternalServer::Application.routes.draw do
 
   namespace :github do
     post "api/hook", :to => "api#hook"
+    resources :repositories, :only => [:index]
   end
 
 end
