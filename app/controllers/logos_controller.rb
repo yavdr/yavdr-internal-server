@@ -33,6 +33,11 @@ class LogosController < ApplicationController
 
   end
 
+  def export
+    x = Logo.archive
+    send_file x, :type => 'application/x-tar', :filename => 'logos.tar.gz'
+  end
+
   private
 
   def load_logo

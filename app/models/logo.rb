@@ -19,6 +19,8 @@ class Logo < ActiveRecord::Base
   def self.archive
     require 'digest/md5'
 
+    tar_file = Tempfile.new(Digest::MD5.hexdigest(Time.now.to_i.to_s))
+
     Dir.mktmpdir do |tmp|
       FileUtils.chdir(tmp) do
         FileUtils.mkdir_p "logos"
@@ -34,10 +36,12 @@ class Logo < ActiveRecord::Base
 
           end
         end
-        Cocaine::CommandLine.new('tar', ['cvzf', Rails.root.join('logos.tar.gz'), "logos"].join(' ')).run
+        Cocaine::CommandLine.new('tar', ['cvzf', tar_file.path, "logos"].join(' ')).run
 
       end
     end
+
+    tar_file
 
   end
 

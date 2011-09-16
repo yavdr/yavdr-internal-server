@@ -1,6 +1,7 @@
 %h2 Logoverwaltung
 %h3= "#{@logos.count} Logos für #{LogoName.count} Sendernamen"
 %p= link_to "Neues Logo", :new_logo
+%p= link_to "Download", :export_logos
 
 -@logos.each do |logo|
   =content_tag_for :div, logo, :style => "text-align: center; margin: 5px 5px 0 0; float: left; border: 1px solid #000;" do
