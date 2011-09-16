@@ -23,3 +23,7 @@ production:
   database: yavdr-internal-server
   timeout: 5000
   encoding: utf8
+  hostname: localhost
+  username: yavdr
+  password: yavdr
+
