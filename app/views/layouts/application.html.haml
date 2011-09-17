@@ -24,11 +24,10 @@
       #main{ :role => :main }
         - unless notice.blank? && alert.blank?
           #flash
-            .wrapper
-              - unless notice.blank?
-                %p.notice= notice
-              - unless alert.blank?
-                %p.alert= alert
+            - unless notice.blank?
+              .notice= notice
+            - unless alert.blank?
+              .alert= alert
 
         = yield
 

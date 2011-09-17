@@ -62,9 +62,26 @@ header {
       }
     }
   }
+}
 
+#flash {
+  .alert, .notice {
+    display: block;
+    @include border-radius(3px);
+    margin: 0 0 5px 0;
+    color: #FFF;
+    font-size: 20px;
+    border: 1px solid #DDDDDD;
+    padding: 5px;
+  }
+  .alert {
+    background-color: #cb4949;
+  }
+  .notice {
+    color: #4E78B1;
+    background-color: #f9f090;
 
-
+  }
 }
 
 #main {
@@ -78,7 +95,7 @@ header {
 
   h2 {
     font-size: 20px;
-    margin: 0 0 0.3em 0;
+    margin: 0 0 5px 0;
     background-color: #DFE8F6;
     @include border-radius(3px);
     color: #4E78B1;
@@ -87,10 +104,10 @@ header {
   }
   h3 {
     font-size: 16px;
-    margin: 0 0 0.3em 0;
+    margin: 0 0 5px 0;
   }
   p {
-    margin: 0.3em 0;
+    margin: 0 0 5px 0;
   }
 
   table {
