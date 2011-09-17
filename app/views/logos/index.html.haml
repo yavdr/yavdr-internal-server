@@ -1,10 +1,13 @@
 %h2 Logoverwaltung
 %h3= "#{@logos.count} Logos für #{LogoName.count} Sendernamen"
-%p= link_to "Neues Logo", :new_logo
-%p= link_to "Download", :export_logos
+%p
+  = link_to "Neues Logo", :new_logo
+  |
+  = link_to "Download", :export_logos
 
--@logos.each do |logo|
-  =content_tag_for :div, logo, :style => "text-align: center; margin: 5px 5px 0 0; float: left; border: 1px solid #000;" do
-    = link_to image_tag(logo.logo.url(:sd), :alt => logo.names.map(&:name).join(', '), :size => "117x66"), logo, :title => logo.names.map(&:name).join(', ')
+#overview.logos
+  -@logos.each do |logo|
+    =content_tag_for :div, logo do
+      = link_to logo, :title => logo.names.map(&:name).join(', ') do
+        =image_tag logo.logo.url(:sd), :alt => logo.names.map(&:name).join(', '), :size => "123x70"
 
-%br{ :style => 'clear: both'}/

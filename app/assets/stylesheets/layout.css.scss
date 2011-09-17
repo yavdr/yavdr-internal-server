@@ -1,11 +1,116 @@
+@import "compass/reset";
+@import "compass/utilities";
+@import "compass/typography";
+@import "compass/css3";
+
 html {
-  font-family: Arial;
+  font-family: Arial, Verdana;
+  background-color: #DFE8F6;
+  font-size: 12px;
+}
+
+#container {
+  margin: 10px auto;
+  width: 960px;
+  background-color: #FFF;
+  padding: 5px;
+  @include border-radius(5px);
+  border: 1px solid #DDDDDD;
 }
 
 header {
+  font-size: 14px;
+  @include clearfix;
+  @include border-radius(4px);
+  background-color: #4E78B1;
+  padding: 10px;
+  color: #FFFFFF;
+
+  h1 {
+    float: left;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 0px 0 10px 0;
+  }
+
+  #meta {
+    margin: 0 0 10px 0;
+    font-size: 12px;
+    float: right;
+    a {
+      @include hover-link();
+      @include link-colors(#FFF, #DDD);
+    }
+  }
+  
+  menu {
+    clear: both;
+    @include clearfix;
+    @include horizontal-list-container;
+    li {
+      @include horizontal-list-item;
+      padding-right: 0;
+
+      a {
+        display: block;
+        @include hover-link();
+        @include link-colors(#333, #666);
+        background-color: #DFE8F6;
+        padding: 7px 10px;
+        line-height: 12px;
+        @include border-radius(5px);
+      }
+    }
+  }
+
+
+
+}
+
+#main {
+  @include clearfix;
+
+  margin: 5px 0;
+  a {
+    @include hover-link();
+    @include link-colors(#666, #AAA);
+  }
+
+  h2 {
+    font-size: 20px;
+    margin: 0 0 0.3em 0;
+    background-color: #DFE8F6;
+    @include border-radius(3px);
+    color: #4E78B1;
+    border: 1px solid #DDDDDD;
+    padding: 5px;
+  }
+  h3 {
+    font-size: 16px;
+    margin: 0 0 0.3em 0;
+  }
+  p {
+    margin: 0.3em 0;
+  }
+
+  table {
+    width: 100%;
+    $table-color: #7a98c6;
+    @include table-scaffolding;
+    @include inner-table-borders(1px, #AAA);
+    @include outer-table-borders(1px, #AAA);
+    //@include alternating-rows-and-columns($table-color, adjust-hue($table-color, -120deg), #222222); } }
+
+    th {
+      text-align: left;
+    }
+  }
 
 }
 
 footer {
+  text-align: center;
+  color: #999;
+  margin: 10px 0 0 5px;
   font-size: 10px;
 }

@@ -1,3 +1,19 @@
-// Place all the styles related to the logos controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "compass/utilities";
+@import "compass/css3";
+
+#main {
+  #overview.logos {
+    @include clearfix;
+    @include border-radius(5px);
+    border: 1px solid #DDDDDD;
+    padding: 0 0 5px 0;
+    .logo {
+      text-align: center;
+      margin: 5px 0 0 5px;
+      padding: 3px;
+      float: left;
+      @include border-radius(3px);
+      border: 1px solid #DDDDDD;
+    }
+  }
+}

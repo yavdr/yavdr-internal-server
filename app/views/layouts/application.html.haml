@@ -6,28 +6,30 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    %header
-      -if user_signed_in?
-        #current_user{ :style => 'float: right '}
-          Logged in as
-          = current_user.email
-          = link_to "Logout", :destroy_user_session, :method => :delete
-      %h1  YaVDR Internal Server
-      %menu
-        %li= link_to "Logos", :logos
-        %li= link_to "Repositories", :github_repositories
-        
+    #container
+      %header
+        #meta
+          -if user_signed_in?
+            Logged in as
+            = current_user.email
+            |
+            = link_to "Logout", :destroy_user_session, :method => :delete
+        %h1  YaVDR Internal Server
+        %menu.clearfix
+          %li= link_to "Logos", :logos
+          %li= link_to "Repositories", :github_repositories
 
-    #container{ :style => 'clear:both' }
-      - unless notice.blank? && alert.blank?
-        #flash
-          .wrapper
-            - unless notice.blank?
-              %p.notice= notice
-            - unless alert.blank?
-              %p.alert= alert
 
-      = yield
+      #main{ :role => :main }
+        - unless notice.blank? && alert.blank?
+          #flash
+            .wrapper
+              - unless notice.blank?
+                %p.notice= notice
+              - unless alert.blank?
+                %p.alert= alert
 
-    %footer
-      YaVDR Internal Server 
+        = yield
+
+      %footer
+        YaVDR Internal Server
