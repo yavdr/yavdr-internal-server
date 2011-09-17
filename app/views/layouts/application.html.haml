@@ -16,6 +16,7 @@
             = link_to "Logout", :destroy_user_session, :method => :delete
         %h1  YaVDR Internal Server
         %menu.clearfix
+          %li= link_to "Home", :root
           %li= link_to "Logos", :logos
           %li= link_to "Repositories", :github_repositories
 
