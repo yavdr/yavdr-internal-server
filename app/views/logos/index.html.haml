@@ -1,13 +1,15 @@
-%h2 Logoverwaltung
-%h3= "#{@logos.count} Logos für #{LogoName.count} Sendernamen"
-%p
-  = link_to "Neues Logo", :new_logo
-  |
-  = link_to "Download", :export_logos
+#index
+  %h2= t('controller.logos.index')
 
-#overview.logos
-  -@logos.each do |logo|
-    =content_tag_for :div, logo do
-      = link_to logo, :title => logo.names.map(&:name).join(', ') do
-        =image_tag logo.logo.url(:sd), :alt => logo.names.map(&:name).join(', '), :size => "123x70"
+  %h3= "#{@logos.count} Logos für #{LogoName.count} Sendernamen"
+  %p
+    = link_to "Neues Logo", :new_logo
+    |
+    = link_to "Download", :export_logos
+
+  .logos
+    -@logos.each do |logo|
+      =content_tag_for :div, logo do
+        = link_to logo, :title => logo.names.map(&:name).join(', ') do
+          =image_tag logo.logo.url(:sd), :alt => logo.names.map(&:name).join(', '), :size => "123x70"
 

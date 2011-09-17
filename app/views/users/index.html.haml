@@ -1,0 +1,15 @@
+#index
+  %h2= t('controller.users.index')
+
+  %table
+    %thead
+      %th= User.human_attribute_name :email
+      %th= User.human_attribute_name :role
+      %th= t('base.options')
+    %tbody
+      -@users.each do |user|
+        =content_tag_for :tr, user do
+          %td= user.email
+          %td= user.role
+          %td= link_to "Ändern", [:edit, user]
+  

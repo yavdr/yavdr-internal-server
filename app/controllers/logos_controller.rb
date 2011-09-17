@@ -16,7 +16,7 @@ class LogosController < ApplicationController
   def create
     @logo = Logo.new params[:logo]
     if @logo.save
-      redirect_to :logos, :notice => "Logo wurde angelegt"
+      redirect_to :logos, :notice => t('controller.logos.created')
     else
       render :new
     end
@@ -24,12 +24,12 @@ class LogosController < ApplicationController
 
   def destroy
     @logo.destroy
-    redirect_to :logos, :notice => "Logo wurde gelöscht"
+    redirect_to :logos, :notice => t('controller.logos.deleted')
   end
 
   def update
     if @logo.update_attributes params[:logo]
-      redirect_to @logo, :notice => "Logo wurde geändert"
+      redirect_to @logo, :notice => t('controller.logos.saved')
     else
       render :edit
     end

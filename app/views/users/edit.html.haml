@@ -1,0 +1,17 @@
+#property
+  %h2= t('controller.users.edit', :email => @user.email)
+
+  =form_for @user do |f|
+
+    %table
+      %tr
+        %td.label= f.label :email
+        %td= @user.email
+      %tr
+        %td.label= f.label :role
+        %td= f.select :role, [['Keine', ''], ['Logoverwaltung', 'logo'], ['yaVDR', 'yavdr']]
+      %tr
+        %td.label &#160;
+        %td= f.submit
+
+

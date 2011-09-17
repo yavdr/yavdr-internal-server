@@ -10,15 +10,15 @@
       %header
         #meta
           -if user_signed_in?
-            Logged in as
-            = current_user.email
+            = t('base.logged_in', :email => current_user.email)
             |
-            = link_to "Logout", :destroy_user_session, :method => :delete
+            = link_to t('base.logout'), :destroy_user_session, :method => :delete
         %h1  YaVDR Internal Server
         %menu.clearfix
-          %li= link_to "Home", :root
-          %li= link_to "Logos", :logos
-          %li= link_to "Repositories", :github_repositories
+          %li= link_to t('menu.dashboard'), :root
+          %li= link_to t('menu.logos'), :logos
+          %li= link_to t('menu.github/repositories'), :github_repositories
+          %li= link_to t('menu.users'), :users
 
 
       #main{ :role => :main }

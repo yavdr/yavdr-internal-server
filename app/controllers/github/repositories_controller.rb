@@ -8,7 +8,7 @@ class Github::RepositoriesController < ApplicationController
 
   def update
     if @repository.update_attributes params[:github_repository]
-      redirect_to :github_repositories, :notice => "Repository wurde gespeichert"
+      redirect_to :github_repositories, :notice => t('controller.github/repositories.saved')
     else
       render :edit
     end

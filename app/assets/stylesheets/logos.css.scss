@@ -2,18 +2,19 @@
 @import "compass/css3";
 
 #main {
-  #overview.logos {
-    @include clearfix;
-    @include border-radius(5px);
-    border: 1px solid #DDDDDD;
-    padding: 0 0 5px 0;
-    .logo {
-      text-align: center;
-      margin: 5px 0 0 5px;
-      padding: 3px;
-      float: left;
-      @include border-radius(3px);
+  #index
+    .logos {
+      @include clearfix;
+      @include border-radius(5px);
       border: 1px solid #DDDDDD;
+      padding: 0 0 5px 0;
+      .logo {
+        text-align: center;
+        margin: 5px 0 0 5px;
+        padding: 3px;
+        float: left;
+        @include border-radius(3px);
+        border: 1px solid #DDDDDD;
+      }
     }
-  }
 }

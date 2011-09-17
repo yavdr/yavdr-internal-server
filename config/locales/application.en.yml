@@ -1,0 +1,22 @@
+en:
+  menu:
+    dashboard: Dashboard
+    logos: Logos
+    github_repositories: Repos
+    users: Users
+  controller:
+    logos:
+      index: Logos
+    users:
+      index: Users
+    github_repositories:
+      index: Users
+  base:
+    options: "Options"
+    logged_in: "Logged in as %{email}"
+    logout: Logout
+  activerecord:
+    models:
+    attributes:
+      user:
+    errors:

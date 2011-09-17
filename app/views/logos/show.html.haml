@@ -1,16 +1,19 @@
-%h2 Logodetail
-
-=content_tag_for :div, @logo do
-  .logo
-    %h3 Logo
-    = image_tag @logo.logo.url
-  .names
-    %h3 Sendernamen
-    %ul
-      -@logo.names.each do |logo_name|
-        %li= logo_name.name
-    .options
-      %h3 Optionen
-      %ul
-        %li= link_to "Ändern", [:edit, @logo]
-        %li= link_to "Löschen", @logo, :method => :delete, :confirm => "Wirklich löschen?"
+#property
+  %h2= t('controller.logos.show')
+  =content_tag_for :div, @logo do
+    %table
+      %tr
+        %td.label= Logo.human_attribute_name :current_logo
+        %td= image_tag @logo.logo.url
+      %tr
+        %td.label= Logo.human_attribute_name :names
+        %td
+          %ul
+            -@logo.names.each do |logo_name|
+              %li= logo_name.name
+      %tr
+        %td.label= t('base.options')
+        %td
+          %ul
+            %li= link_to "Ändern", [:edit, @logo]
+            %li= link_to "Löschen", @logo, :method => :delete, :confirm => "Wirklich löschen?"

@@ -1,19 +1,24 @@
 =nested_form_for  @logo do |f|
-  -unless @logo.new_record?
-    .logo
-      = image_tag @logo.logo.url
 
-  -#= debug @logo.errors.to_a
+  %table
+    -unless @logo.new_record?
+      %tr
+        %td.label= f.label :current_logo
+        %td= image_tag @logo.logo.url
+    %tr
+      %td.label= f.label :logo
+      %td= f.file_field :logo
+    %tr
+      %td.label= f.label :names
+      %td
+        = f.fields_for :names do |fn|
+          %p
+            = fn.text_field :name
+            = fn.link_to_remove "X"
+        = f.link_to_add "Neuen Sendernamen", :names
+    %tr
+      %td.label &#160;
+      %td= f.submit
 
-  %h3 Bild
-  %p= f.label :logo
-  %p= f.file_field :logo
-  %h3 Name
-  = f.fields_for :names do |fn|
-    %p
-      = fn.text_field :name
-      = fn.link_to_remove "X"
-  = f.link_to_add "Neuen Sendernamen", :names
 
-  %p= f.submit
 

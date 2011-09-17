@@ -6,7 +6,7 @@
 html {
   font-family: Arial, Verdana;
   background-color: #DFE8F6;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 #container {
@@ -112,14 +112,26 @@ header {
 
   table {
     width: 100%;
-    $table-color: #7a98c6;
     @include table-scaffolding;
     @include inner-table-borders(1px, #AAA);
     @include outer-table-borders(1px, #AAA);
-    //@include alternating-rows-and-columns($table-color, adjust-hue($table-color, -120deg), #222222); } }
-
     th {
       text-align: left;
+      background-color: #cdcdcd;
+    }
+    td, th {
+      vertical-align: middle;
+      padding: 3px 6px;
+    }
+  }
+
+  #property table {
+    td, th {
+      height: 28px;
+    }
+    .label {
+      width: 200px;
+      background-color: #cdcdcd;
     }
   }
 

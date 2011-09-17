@@ -1,9 +1,17 @@
-%h2 Repository ändern
-= form_for  @repository do |f|
-
-  =debug @repository.errors
-
-  %p= f.label :build_type
-  %p= f.select :build_type, [['Nicht baubar', ''], ['Baubar', 'buildable'], ['Automtisch bauen', 'autobuild']]
-  %p= f.submit
-
+#property
+  %h2 Repository ändern
+  = form_for  @repository do |f|
+    %table
+      %tr
+        %td.label= f.label :name
+        %td= @repository.name
+      %tr
+        %td.label= f.label :url
+        %td= link_to @repository.url, @repository.url, :target => '_blank'
+      %tr
+        %td.label= f.label :build_type
+        %td= f.select :build_type, [['Nicht baubar', ''], ['Baubar', 'buildable'], ['Automtisch bauen', 'autobuild']]
+      %tr
+        %td.label &#160;
+        %td= f.submit
+        

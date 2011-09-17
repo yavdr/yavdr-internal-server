@@ -1,0 +1,47 @@
+de:
+  menu:
+    dashboard: Dashboard
+    logos: Logos
+    'github/repositories': Repos
+    users: Benutzer
+  controller:
+    logos:
+      index: Logoverwaltung
+      new: Neues Logo
+      show: Logo
+      edit: Logo ändern
+      saved: Logo wurde gespeichert
+      deleted: Logo wurde gelöscht
+      created: Logo wurde angelegt
+    users:
+      index: Benutzerverwaltung
+      edit: Benutzer "%{email}" ändern
+      saved: Benutzer wurde gespeichert
+    'github/repositories':
+      index: Repositories
+      edit: Repository "%{name}" ändern
+      saved: Repository wurde gespeichert
+  base:
+    options: "Optionen"
+    logged_in: "Angemeldet als %{email}"
+    logout: Abmelden
+    edit: Ändern
+    
+  activerecord:
+    models:
+      user: Benutzer
+      'github/repository': Repository
+      logo: Logo
+    attributes:
+      user:
+        email: E-Mail
+        role: Rolle
+      'github/repository':
+        build_type: Buildtyp
+        url: URL
+        name: Name
+      logo:
+        names: Namen
+        current_logo: Aktuelles Logo
+
+    errors:
