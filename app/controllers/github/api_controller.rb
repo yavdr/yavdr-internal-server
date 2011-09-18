@@ -10,6 +10,8 @@ class Github::ApiController < ApplicationController
         }
       )
 
+      UserMailer.commit(payload).deliver
+
       render :json => { :status => true }
     end
   end
