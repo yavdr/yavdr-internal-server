@@ -3,12 +3,7 @@ class Github::ApiController < ApplicationController
     payload = JSON.parse(params[:payload])
 
     unless payload['repository'].blank?
-      repository = Repository.find_or_create_by_url(
-        {
-          name: payload['repository']['name'],
-          url: payload['repository']['url']
-        }
-      )
+      repository = Repository.find_or_create_by_url(payload['repository']['url'])  { |u| u.name = payload['repository']['name'] }
       Rails.logger.info(repository.inspect)
 
       if repository.autobuild?
