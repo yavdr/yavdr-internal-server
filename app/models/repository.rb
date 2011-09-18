@@ -1,4 +1,4 @@
-class Github::Repository < ActiveRecord::Base
+class Repository < ActiveRecord::Base
   validates :name, :presence => true
   validates :url, :presence => true, :uniqueness => true
   validates :build_type, :inclusion => { :in => ['autobuild', 'buildable'] }, :allow_nil => true, :allow_blank => true

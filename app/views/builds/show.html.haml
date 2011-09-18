@@ -3,8 +3,8 @@
   =content_tag_for :div, @build do
     %table
       %tr
-        %td.label= Build.human_attribute_name :github_repository_id
-        %td= link_to @build.github_repository.name, @build.github_repository.url, :target => '_blank'
+        %td.label= Build.human_attribute_name :repository_id
+        %td= link_to @build.repository.name, @build.repository.url, :target => '_blank'
       %tr
         %td.label= Build.human_attribute_name :status
         %td= @build.status

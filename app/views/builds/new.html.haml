@@ -5,8 +5,8 @@
 
     %table
       %tr
-        %td.label= f.label :github_repository_id
-        %td= f.select :github_repository_id, Github::Repository.all.collect {|p| [ p.name, p.id ] }, :include_blank => true
+        %td.label= f.label :repository_id
+        %td= f.select :repository_id, Repository.all.collect {|p| [ p.name, p.id ] }, :include_blank => true
       %tr
         %td.label= f.label :dist
         %td= f.select :dist, [['Natty', 'natty'], ['Oneiric', 'oneiric']]

@@ -1,6 +1,6 @@
 class Build < ActiveRecord::Base
-  belongs_to :github_repository, :class_name => 'Github::Repository'
-  validates :github_repository_id, :presence => true
+  belongs_to :repository
+  validates :repository_id, :presence => true
   validates :branch, :presence => true
   validates :dist, :presence => true
   validates :stage, :presence => true, :inclusion => {:in => ['unstable', 'testing', 'stable']}

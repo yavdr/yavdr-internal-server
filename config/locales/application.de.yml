@@ -2,7 +2,7 @@ de:
   menu:
     dashboard: Dashboard
     logos: Logos
-    'github/repositories': Repos
+    repositories: Repos
     users: Benutzer
     builds: Builds
   controller:
@@ -18,7 +18,7 @@ de:
       index: Benutzerverwaltung
       edit: Benutzer "%{email}" ändern
       saved: Benutzer wurde gespeichert
-    'github/repositories':
+    repositories:
       index: Repositories
       edit: Repository "%{name}" ändern
       saved: Repository wurde gespeichert
@@ -38,13 +38,13 @@ de:
   activerecord:
     models:
       user: Benutzer
-      'github/repository': Repository
+      repository: Repository
       logo: Logo
     attributes:
       user:
         email: E-Mail
         role: Rolle
-      'github/repository':
+      repository:
         build_type: Buildtyp
         url: URL
         name: Name
@@ -52,8 +52,8 @@ de:
         names: Namen
         current_logo: Aktuelles Logo
       build:
-        github_repository: Repository
-        github_repository_id: Repository
+        repository: Repository
+        repository_id: Repository
 
 
     errors:

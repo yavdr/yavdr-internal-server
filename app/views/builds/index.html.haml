@@ -6,7 +6,7 @@
   %table
     %thead
       %th= Build.human_attribute_name :id
-      %th= Build.human_attribute_name :github_repository
+      %th= Build.human_attribute_name :repository
       %th= Build.human_attribute_name :dist
       %th= Build.human_attribute_name :stage
       %th= Build.human_attribute_name :branch
@@ -17,7 +17,7 @@
       -@builds.each do |build|
         =content_tag_for :tr, build do
           %td= link_to build.id, build
-          %td= link_to build.github_repository.name, build.github_repository.url, :target => '_blank'
+          %td= link_to build.repository.name, build.repository.url, :target => '_blank'
           %td= build.dist
           %td= build.stage
           %td= build.branch
