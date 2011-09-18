@@ -15,7 +15,9 @@ gem 'pg'
 gem "cancan"
 gem 'devise'
 gem 'delayed_job'
-gem "kaminari"  
+gem "kaminari"
+gem 'nokogiri'
+gem 'httpclient'
 
 # Gems used only for assets and not required
 # in production environments by default.
