@@ -3,12 +3,16 @@ class Github::ApiController < ApplicationController
     payload = JSON.parse(params[:payload])
 
     unless payload['repository'].blank?
-      repository = ::Repository.find_or_create_by_url(
-        {
-          name: payload['repository']['name'],
-          url: payload['repository']['url']
-        }
-      )
+      repository = Repository.find_by_url(payload['repository']['url'])
+      
+      unless repository
+        repository = Repository.create(
+          {
+            :name => payload['repository']['name'],
+            :url => payload['repository']['url']
+          }
+        )
+      end
 
       if repository.autobuild?
         branch = payload['ref'].gsub("refs/heads/", '')
@@ -25,7 +29,7 @@ class Github::ApiController < ApplicationController
 
       UserMailer.commit(payload).deliver
 
-      render :json => { :status => true }
+      render :json => {:status => true}
     end
   end
 end
