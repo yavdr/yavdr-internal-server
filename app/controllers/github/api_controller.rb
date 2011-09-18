@@ -1,7 +1,6 @@
 class Github::ApiController < ApplicationController
   def hook
     payload = JSON.parse(params[:payload])
-    Rails.logger.info(payload.inspect)
 
     repository = Repository.find_by_url(payload['repository']['url'])
     
@@ -28,7 +27,8 @@ class Github::ApiController < ApplicationController
 
       UserMailer.commit(payload).deliver
 
-      render :json => {:status => true}
     end
+
+    render :json => {:status => true}
   end
 end
