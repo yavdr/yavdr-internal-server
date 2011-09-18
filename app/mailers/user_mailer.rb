@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "team@marco-scholl.de"
+  default from: "team@yavdr.org"
 
   def commit(payload)
     @payload = payload
