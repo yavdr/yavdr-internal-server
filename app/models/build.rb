@@ -3,8 +3,8 @@ class Build < ActiveRecord::Base
   validates :repository_id, :presence => true
   validates :branch, :presence => true, :length => { :maximum => 50 }
   validates :dist, :presence => true, :length => {:maximum => 50}
-  validates :stage, :presence => true, :inclusion => {:in => ['unstable', 'testing', 'stable']}
-  validates :status, :inclusion => {:in => ['waiting', 'inprocess', 'complete', 'error']}
+  validates :stage, :presence => true, :inclusion => {:in => YavdrInternalServer::STAGES}
+  validates :status, :inclusion => {:in => YavdrInternalServer::BUILD_STATUS}
 
   after_create :create_job
 
