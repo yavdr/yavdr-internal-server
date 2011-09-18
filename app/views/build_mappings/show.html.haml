@@ -12,6 +12,9 @@
         %td.label= BuildMapping.human_attribute_name :dist
         %td= @build_mapping.dist
       %tr
+        %td.label= BuildMapping.human_attribute_name :created_at
+        %td= @build_mapping.created_at.to_date
+      %tr
         %td.label= t('base.options')
         %td
           %ul

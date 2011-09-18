@@ -15,7 +15,7 @@
           %td= build_mapping.branch
           %td= build_mapping.stage
           %td= build_mapping.dist
-          %td= l build_mapping.created_at
+          %td= l build_mapping.created_at.to_date
           %td
             = link_to t('base.details'), build_mapping
             |
