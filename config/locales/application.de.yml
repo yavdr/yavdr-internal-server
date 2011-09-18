@@ -54,6 +54,7 @@ de:
         email: E-Mail
         role: Rolle
         created_at: Erstellt am
+        commit_mail: Commit E-Mail
       repository:
         build_type: Buildtyp
         url: URL
