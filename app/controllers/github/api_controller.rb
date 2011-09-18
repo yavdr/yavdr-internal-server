@@ -10,16 +10,17 @@ class Github::ApiController < ApplicationController
         }
       )
 
-      branch = payload['ref'].gsub("refs/heads/", '')
-
-      BuildMapping.where(:branch => branch).all.each do |build_mapping|
-        Build.create!(
-          {
-            :repository_id => repository.id,
-            :dist => build_mapping.dist,
-            :stage => build_mapping.stage
-          }
-        )
+      if repository.autobuild?
+        branch = payload['ref'].gsub("refs/heads/", '')
+        BuildMapping.where(:branch => branch).all.each do |build_mapping|
+          Build.create!(
+            {
+              :repository_id => repository.id,
+              :dist => build_mapping.dist,
+              :stage => build_mapping.stage
+            }
+          )
+        end
       end
 
       UserMailer.commit(payload).deliver
