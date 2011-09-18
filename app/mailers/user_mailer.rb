@@ -3,8 +3,8 @@ class UserMailer < ActionMailer::Base
 
   def commit(payload)
     @payload = payload
-    @content = HTTPClient.get_content(@payload['repository']['compare'])
-    @doc = Nokogiri::HTML(content)
+    @content = HTTPClient.get_content(@payload['compare'])
+    @doc = Nokogiri::HTML(@content)
     @compare = @doc.css("#compare")
     mail to: "develop@marco-scholl.de"
   end
