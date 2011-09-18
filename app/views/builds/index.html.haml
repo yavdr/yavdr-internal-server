@@ -3,6 +3,8 @@
   %p{:style => "color: red"} Noch in Entwicklung!
   %p
     = link_to t('controller.builds.new'), :new_build
+    |
+    = link_to t('controller.build_mappings.index'), :build_mappings
   %table
     %thead
       %th= Build.human_attribute_name :id

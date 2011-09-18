@@ -2,6 +2,7 @@ YavdrInternalServer::Application.routes.draw do
   devise_for :users
   resources :users
   resources :builds
+  resources :build_mappings
   resources :repositories, :only => [:index, :edit, :update]
 
   root :to => 'pages#index'

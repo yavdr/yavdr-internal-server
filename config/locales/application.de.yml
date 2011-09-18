@@ -27,6 +27,13 @@ de:
       new: Neuer Build
       created: Build wurde erstellt
       show: Build %{build_id}
+    build_mappings:
+      index: Buildmappings
+      new: Neues Buildmapping
+      created: Buildmapping wurde erstellt
+      show: Buildmapping
+      destroyed: Buildmapping wurde gelöscht
+
   base:
     options: "Optionen"
     logged_in: "Angemeldet als %{email}"
@@ -36,24 +43,32 @@ de:
     download: Download
     
   activerecord:
+
     models:
       user: Benutzer
       repository: Repository
       logo: Logo
+      build_mapping: Buildmapping
     attributes:
       user:
         email: E-Mail
         role: Rolle
+        created_at: Erstellt am
       repository:
         build_type: Buildtyp
         url: URL
         name: Name
+        created_at: Erstellt am
       logo:
         names: Namen
         current_logo: Aktuelles Logo
+        created_at: Erstellt am
       build:
         repository: Repository
         repository_id: Repository
-
-
+        created_at: Erstellt am
+      build_mapping:
+        repository: Repository
+        repository_id: Repository
+        created_at: Erstellt am
     errors:

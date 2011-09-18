@@ -1,0 +1,19 @@
+#property
+  %h2= t('controller.build_mappings.show')
+  =content_tag_for :div, @build_mapping do
+    %table
+      %tr
+        %td.label= BuildMapping.human_attribute_name :branch
+        %td= @build_mapping.branch
+      %tr
+        %td.label= BuildMapping.human_attribute_name :stage
+        %td= @build_mapping.stage
+      %tr
+        %td.label= BuildMapping.human_attribute_name :dist
+        %td= @build_mapping.dist
+      %tr
+        %td.label= t('base.options')
+        %td
+          %ul
+            %li= link_to "Ändern", [:edit, @build_mapping]
+            %li= link_to "Löschen", @build_mapping, :method => :delete, :confirm => "Wirklich löschen?"

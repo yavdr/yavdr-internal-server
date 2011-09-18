@@ -1,0 +1,25 @@
+#index
+  %h2= t('controller.build_mappings.index')
+  %p
+    = link_to t('controller.build_mappings.new'), :new_build_mapping
+  %table
+    %thead
+      %th= BuildMapping.human_attribute_name :dist
+      %th= BuildMapping.human_attribute_name :stage
+      %th= BuildMapping.human_attribute_name :branch
+      %th= BuildMapping.human_attribute_name :created_at
+      %th= t('base.options')
+    %tbody
+      -@build_mappings.each do |build_mapping|
+        =content_tag_for :tr, build_mapping do
+          %td= build_mapping.dist
+          %td= build_mapping.stage
+          %td= build_mapping.branch
+          %td= l build_mapping.created_at
+          %td
+            = link_to t('base.details'), build_mapping
+            |
+            = link_to t('base.edit'), [:edit, build_mapping]
+            |
+            = link_to "Löschen", build_mapping, :method => :delete, :confirm => "Wirklich löschen?"
+

@@ -1,0 +1,19 @@
+= form_for @build_mapping do |f|
+  = debug @build_mapping.errors.messages
+
+  %table
+    %tr
+      %td.label= f.label :branch
+      %td= f.text_field :branch
+    %tr
+      %td.label= f.label :stage
+      %td= f.select :stage, [['Unstable', 'unstable'], ['Testing', 'testing'], ['Stable', 'stable']]
+    %tr
+      %td.label= f.label :dist
+      %td= f.select :dist, [['Natty', 'natty'], ['Oneiric', 'oneiric']]
+    %tr
+      %td.label &#160;
+      %td= f.submit
+
+
+
