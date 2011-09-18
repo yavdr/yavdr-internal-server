@@ -6,6 +6,8 @@ class UserMailer < ActionMailer::Base
     @content = HTTPClient.get_content(@payload['compare'])
     @doc = Nokogiri::HTML(@content)
     @compare = @doc.css("#compare")
+    @compare.css("#compare_chooser").remove
+    @compare.css('.subtext').remove
     mail to: "develop@marco-scholl.de"
   end
 end
