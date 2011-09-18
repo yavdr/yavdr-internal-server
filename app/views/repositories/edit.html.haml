@@ -11,6 +11,9 @@
         %td.label= f.label :url
         %td= link_to @repository.url, @repository.url, :target => '_blank'
       %tr
+        %td.label= f.label :section
+        %td= f.select :section, YavdrInternalServer::SECTIONS, :include_blank => true
+      %tr
         %td.label= f.label :build_type
         %td= f.select :build_type, [['Nicht baubar', ''], ['Baubar', 'buildable'], ['Automtisch bauen', 'autobuild']]
       %tr

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110918102252) do
+ActiveRecord::Schema.define(:version => 20110918210748) do
 
   create_table "build_mappings", :force => true do |t|
     t.string   "branch",     :default => "master",   :null => false
@@ -62,12 +62,13 @@ ActiveRecord::Schema.define(:version => 20110918102252) do
   end
 
   create_table "repositories", :force => true do |t|
-    t.string   "name",                          :null => false
-    t.string   "url",                           :null => false
-    t.boolean  "active",     :default => false, :null => false
+    t.string   "name",                            :null => false
+    t.string   "url",                             :null => false
+    t.boolean  "active",     :default => false,   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "build_type"
+    t.string   "section",    :default => "yavdr", :null => false
   end
 
   create_table "users", :force => true do |t|

@@ -15,13 +15,4 @@ class User < ActiveRecord::Base
     role == 'logo'
   end
 
-  def self.select_roles
-    list = []
-    list << ['Keine', '']
-    YavdrInternalServer::ROLES.each_pair do |k, y|
-      list << [y, k]
-    end
-    list
-  end
-
 end

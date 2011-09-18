@@ -2,6 +2,7 @@ class Repository < ActiveRecord::Base
   validates :name, :presence => true, :length => {:maximum => 100}
   validates :url, :presence => true, :uniqueness => true, :length => {:maximum => 250}
   validates :build_type, :inclusion => {:in => ['autobuild', 'buildable']}, :allow_nil => true, :allow_blank => true
+  validates :section, :presence => true, :inclusion => {:in => YavdrInternalServer::SECTIONS}
 
   attr_accessible :build_type
 

@@ -3,15 +3,17 @@
 
   %table
     %thead
-      %th Name
-      %th URL
-      %th BuildType
-      %th Optionen
+      %th= Repository.human_attribute_name :name
+      %th= Repository.human_attribute_name :url
+      %th= Repository.human_attribute_name :section
+      %th= Repository.human_attribute_name :build_type
+      %th= t('base.options')
     %tbody
       -@repositories.each do |repository|
         =content_tag_for :tr, repository do
           %td= repository.name
           %td= link_to repository.url, repository.url, :target => '_blank'
+          %td= repository.section
           %td= repository.autobuild? ? 'Automatisch bauen' : (repository.buildable? ? 'Baubar' : 'Nicht baubar')
           %td= link_to "Ändern", [:edit, repository]
 

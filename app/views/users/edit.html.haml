@@ -10,7 +10,7 @@
         %td= @user.email
       %tr
         %td.label= f.label :role
-        %td= f.select :role, User.select_roles
+        %td= f.select :role, YavdrInternalServer::ROLES.invert, :include_blank => true
       %tr
         %td.label= f.label :commit_mail
         %td= f.check_box :commit_mail
