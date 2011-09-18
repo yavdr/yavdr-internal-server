@@ -4,6 +4,7 @@ de:
     logos: Logos
     'github/repositories': Repos
     users: Benutzer
+    builds: Builds
   controller:
     logos:
       index: Logoverwaltung
@@ -21,11 +22,18 @@ de:
       index: Repositories
       edit: Repository "%{name}" ändern
       saved: Repository wurde gespeichert
+    builds:
+      index: Builds
+      new: Neuer Build
+      created: Build wurde erstellt
+      show: Build %{build_id}
   base:
     options: "Optionen"
     logged_in: "Angemeldet als %{email}"
     logout: Abmelden
     edit: Ändern
+    details: Details
+    download: Download
     
   activerecord:
     models:
@@ -43,5 +51,9 @@ de:
       logo:
         names: Namen
         current_logo: Aktuelles Logo
+      build:
+        github_repository: Repository
+        github_repository_id: Repository
+
 
     errors:

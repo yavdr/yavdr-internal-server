@@ -60,6 +60,10 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.1.2)
+    daemons (1.1.4)
+    delayed_job (2.1.4)
+      activesupport (~> 3.0)
+      daemons
     devise (1.4.5)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
@@ -74,6 +78,8 @@ GEM
     jquery-rails (1.0.14)
       railties (~> 3.0)
       thor (~> 0.14)
+    kaminari (0.12.4)
+      rails (>= 3.0.0)
     mail (2.3.0)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -149,9 +155,11 @@ DEPENDENCIES
   cocaine (~> 0.2.0)
   coffee-rails (~> 3.1.0)
   compass!
+  delayed_job
   devise
   haml
   jquery-rails
+  kaminari
   nested_form!
   paperclip
   pg

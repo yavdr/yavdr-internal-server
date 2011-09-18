@@ -1,0 +1,26 @@
+#property
+  %h2= t('controller.builds.show', :build_id => @build.id)
+  =content_tag_for :div, @build do
+    %table
+      %tr
+        %td.label= Build.human_attribute_name :github_repository_id
+        %td= link_to @build.github_repository.name, @build.github_repository.url
+      %tr
+        %td.label= Build.human_attribute_name :status
+        %td= @build.status
+      %tr
+        %td.label= Build.human_attribute_name :dist
+        %td= @build.dist
+      %tr
+        %td.label= Build.human_attribute_name :stage
+        %td= @build.stage
+      %tr
+        %td.label= Build.human_attribute_name :branch
+        %td= @build.branch
+      %tr
+        %td.label= Build.human_attribute_name :created_at
+        %td= l @build.created_at
+      %tr
+        %td.label= Build.human_attribute_name :log
+        %td= @build.log
+

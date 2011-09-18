@@ -14,7 +14,8 @@ gem 'nested_form', :git => 'git://github.com/ryanb/nested_form.git'
 gem 'pg'
 gem "cancan"
 gem 'devise'
-#gem "nifty-generators", :group => :development
+gem 'delayed_job'
+gem "kaminari"  
 
 # Gems used only for assets and not required
 # in production environments by default.

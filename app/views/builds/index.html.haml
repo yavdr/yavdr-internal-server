@@ -1,0 +1,27 @@
+#index
+  %h2= t('controller.builds.index')
+  %p{:style => "color: red"} Noch in Entwicklung!
+  %p
+    = link_to t('controller.builds.new'), :new_build
+  %table
+    %thead
+      %th= Build.human_attribute_name :id
+      %th= Build.human_attribute_name :github_repository
+      %th= Build.human_attribute_name :dist
+      %th= Build.human_attribute_name :stage
+      %th= Build.human_attribute_name :branch
+      %th= Build.human_attribute_name :status
+      %th= Build.human_attribute_name :created_at
+      %th= t('base.options')
+    %tbody
+      -@builds.each do |build|
+        =content_tag_for :tr, build do
+          %td= link_to build.id, build
+          %td= link_to build.github_repository.name, build.github_repository.url
+          %td= build.dist
+          %td= build.stage
+          %td= build.branch
+          %td= build.status
+          %td= l build.created_at 
+          %td= link_to t('base.details'), [build]
+
