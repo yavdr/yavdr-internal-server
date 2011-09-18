@@ -6,6 +6,7 @@ class Repository < ActiveRecord::Base
   attr_accessible :build_type
 
   default_scope order(:name)
+  scope :buildables, where("build_type = ? OR build_type = ?", 'autobuild', 'buildable')
 
   def autobuild?
     build_type.to_s == 'autobuild'

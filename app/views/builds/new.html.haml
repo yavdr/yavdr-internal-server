@@ -1,12 +1,12 @@
 #property
   %h2= t('controller.builds.new')
   = form_for @build do |f|
-    = debug @build.errors.messages
+    = debug @build.errors.messages if @build.errors.any?
 
     %table
       %tr
         %td.label= f.label :repository_id
-        %td= f.select :repository_id, Repository.all.collect {|p| [ p.name, p.id ] }, :include_blank => true
+        %td= f.select :repository_id, Repository.buildables.all.collect {|p| [ p.name, p.id ] }, :include_blank => true
       %tr
         %td.label= f.label :dist
         %td= f.select :dist, [['Natty', 'natty'], ['Oneiric', 'oneiric']]

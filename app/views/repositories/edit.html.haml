@@ -1,6 +1,8 @@
 #property
-  %h2 Repository ändern
+  %h2= t('controller.repositories.edit', :name => @repository.name)
   = form_for  @repository do |f|
+    = debug @repository.errors.messages if @repository.errors.any?
+    
     %table
       %tr
         %td.label= f.label :name

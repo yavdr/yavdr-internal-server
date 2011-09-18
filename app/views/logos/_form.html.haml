@@ -1,4 +1,5 @@
 =nested_form_for  @logo do |f|
+  = debug @logo.errors.messages if @logo.errors.any?
 
   %table
     -unless @logo.new_record?

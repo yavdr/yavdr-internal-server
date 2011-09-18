@@ -2,6 +2,7 @@
   %h2= t('controller.users.edit', :email => @user.email)
 
   =form_for @user do |f|
+    = debug @user.errors.messages if @user.errors.any?
 
     %table
       %tr

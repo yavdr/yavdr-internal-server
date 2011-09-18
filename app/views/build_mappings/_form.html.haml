@@ -1,5 +1,5 @@
 = form_for @build_mapping do |f|
-  = debug @build_mapping.errors.messages
+  = debug @build_mapping.errors.messages if @build_mapping.errors.any?
 
   %table
     %tr
