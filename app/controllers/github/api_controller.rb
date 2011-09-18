@@ -9,7 +9,7 @@ class Github::ApiController < ApplicationController
           url: payload['repository']['url']
         }
       )
-      Rails.logger.info(repository.inpsect)
+      Rails.logger.info(repository.inspect)
 
       if repository.autobuild?
         branch = payload['ref'].gsub("refs/heads/", '')
