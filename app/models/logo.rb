@@ -1,6 +1,6 @@
 class Logo < ActiveRecord::Base
   has_many :names, :class_name => "LogoName", :dependent => :destroy
-  
+
   has_attached_file :logo,
                     :path => "public/system/:class/:id/:style.:extension",
                     :url => "/system/:class/:id/:style.:extension",

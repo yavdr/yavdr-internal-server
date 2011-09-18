@@ -1,8 +1,8 @@
 class Build < ActiveRecord::Base
   belongs_to :repository
   validates :repository_id, :presence => true
-  validates :branch, :presence => true
-  validates :dist, :presence => true
+  validates :branch, :presence => true, :length => { :maximum => 50 }
+  validates :dist, :presence => true, :length => {:maximum => 50}
   validates :stage, :presence => true, :inclusion => {:in => ['unstable', 'testing', 'stable']}
   validates :status, :inclusion => {:in => ['waiting', 'inprocess', 'complete', 'error']}
 
