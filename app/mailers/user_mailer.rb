@@ -3,7 +3,8 @@ class UserMailer < ActionMailer::Base
 
   def commit(payload)
     @payload = payload
-    @content = HTTPClient.get_content(@payload['compare'])
+    @compare_url = @payload['compare']
+    @content = HTTPClient.get_content(@compare_url)
     @doc = Nokogiri::HTML(@content)
     @compare = @doc.css("#compare")
     @compare.css("#compare_chooser").remove
