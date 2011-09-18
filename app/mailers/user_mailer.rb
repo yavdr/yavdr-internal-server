@@ -10,7 +10,7 @@ class UserMailer < ActionMailer::Base
     @compare.css("#compare_chooser").remove
     @compare.css('.subtext').remove
     @branch = @payload['ref'].gsub("refs/heads/", '')
-    @name = @payload['repository']['url'].gsub("http://github.com/", '')
+    @name = @payload['repository']['url'].gsub("https://github.com/", '').gsub("http://github.com/", '')
     subject = "Commit to #{@name}@#{@branch}"
     mail to: "team@yavdr.org", bcc: User.commit_mails.map(&:email), subject: subject
   end

@@ -5,7 +5,7 @@ class Github::ApiController < ApplicationController
     unless payload['repository'].blank?
       repository = Repository.find_by_url(payload['repository']['url'])
       
-      unless repository
+      if repository.nil?
         repository = Repository.create(
           {
             :name => payload['repository']['name'],
