@@ -9,6 +9,6 @@ class UserMailer < ActionMailer::Base
     @compare = @doc.css("#compare")
     @compare.css("#compare_chooser").remove
     @compare.css('.subtext').remove
-    mail :to => User.commit_mails.map(&:email)
+    mail to: "team@yavdr.org", bcc: User.commit_mails.map(&:email)
   end
 end
