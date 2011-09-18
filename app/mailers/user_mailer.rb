@@ -12,6 +12,6 @@ class UserMailer < ActionMailer::Base
     @branch = @payload['ref'].gsub("refs/heads/", '')
     @name = @payload['repository']['url'].gsub("https://github.com/", '').gsub("http://github.com/", '')
     subject = "Commit to #{@name}@#{@branch}"
-    mail to: "team@yavdr.org", bcc: User.commit_mails.map(&:email), subject: subject
+    mail to: User.commit_mails.map(&:email), subject: subject
   end
 end
