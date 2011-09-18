@@ -6,7 +6,7 @@ class BuildsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    
+
   end
 
   def create
@@ -18,8 +18,17 @@ class BuildsController < ApplicationController
     end
   end
 
+  def show
+    respond_to do |format|
+      format.html
+      format.log do
+        send_file @build.log_path, :type => "text/plain", :disposition => "inline"
+      end
+    end
+  end
+
   private
-  
+
   def load_builds
     @builds = Build.order("created_at DESC").page params[:page]
   end

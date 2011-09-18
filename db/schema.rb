@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110918210748) do
+ActiveRecord::Schema.define(:version => 20110918224109) do
 
   create_table "build_mappings", :force => true do |t|
     t.string   "branch",     :default => "master",   :null => false
@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(:version => 20110918210748) do
     t.string   "dist",                                  :null => false
     t.string   "stage",         :default => "unstable", :null => false
     t.string   "status",        :default => "waiting",  :null => false
-    t.text     "log"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

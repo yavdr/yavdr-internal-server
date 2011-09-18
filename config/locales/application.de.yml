@@ -40,6 +40,7 @@ de:
     logout: Abmelden
     edit: Ändern
     details: Details
+    log: Log
     download: Download
     
   activerecord:

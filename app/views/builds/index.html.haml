@@ -29,4 +29,6 @@
           %td= l build.created_at, :format => :short
           %td
             = link_to t('base.details'), [build]
+            |
+            = link_to t('base.log'), build_path(build, :format => :log), :target => '_blank'
 
