@@ -17,7 +17,7 @@
       -@builds.each do |build|
         =content_tag_for :tr, build do
           %td= link_to build.id, build
-          %td= link_to build.github_repository.name, build.github_repository.url
+          %td= link_to build.github_repository.name, build.github_repository.url, :target => '_blank'
           %td= build.dist
           %td= build.stage
           %td= build.branch
