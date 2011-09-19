@@ -71,7 +71,7 @@ dput ppa:yavdr/${STAGE}-${SECTION} "${PACKAGE_NAME_VERSION}${VERSION_SUFFIX}_sou
 
 echo "=== cleanup ==="
 rm -rf $PACKAGE_NAME_VERSION
-rm -rf "${PACKAGE_NAME_VERSION}${VERSION_SUFFIX}.orig.tar.gz"
+rm -rf "${PACKAGE_NAME_VERSION}.orig.tar.gz"
 rm -rf "${PACKAGE_NAME_VERSION}${VERSION_SUFFIX}.debian.tar.gz"
 rm -rf "${PACKAGE_NAME_VERSION}${VERSION_SUFFIX}.dsc"
 rm -rf "${PACKAGE_NAME_VERSION}${VERSION_SUFFIX}_source.ppa.upload"
