@@ -10,7 +10,7 @@ class Build < ActiveRecord::Base
   after_destroy :delete_log
 
   def process
-    return unless status.to_sym == :waiting
+    #return unless status.to_sym == :waiting
     update_attribute :status, :inprocess
 
     if (repository.section == 'main')
@@ -18,9 +18,13 @@ class Build < ActiveRecord::Base
     else
       lprepo = "#{stage}-#{repository.section}"
     end
-    
-    gitrepo = repository.url.gsub("https://", "git://") + ".git"
-    r = system("#{Rails.root + 'script' + 'build.sh'} '#{repository.name}' '#{branch}' '#{dist}' '#{lprepo}' '#{gitrepo}' > #{log_path}")
+
+    r = false
+    FileUtils.mkdir_p build_path
+    Dir.chdir(build_path) do
+      gitrepo = repository.url.gsub("https://", "git://") + ".git"
+      r = system("#{Rails.root + 'script' + 'build.sh'} '#{repository.name}' '#{branch}' '#{dist}' '#{stage}' '#{repository.section}' '#{gitrepo}' 'medium' > build.log")
+    end
 
     if r
       self.status = 'complete'
@@ -36,6 +40,10 @@ class Build < ActiveRecord::Base
 
   def log_path
     (Rails.root + 'shared' + 'builds' + "#{self.id}.log").to_s
+  end
+
+  def build_path
+    path = (Rails.root + 'shared' + 'builds' + self.id.to_s).to_s
   end
 
   private
