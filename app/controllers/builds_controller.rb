@@ -22,7 +22,11 @@ class BuildsController < ApplicationController
     respond_to do |format|
       format.html
       format.log do
-        send_file @build.log_path, :type => "text/plain", :disposition => "inline"
+        if File.exists? @build.log_path
+          send_file @build.log_path, :type => "text/plain", :disposition => "inline"
+        else
+          render :text => ""
+        end
       end
     end
   end
