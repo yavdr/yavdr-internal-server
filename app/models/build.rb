@@ -7,7 +7,7 @@ class Build < ActiveRecord::Base
   validates :status, :inclusion => {:in => YavdrInternalServer::BUILD_STATUS}
 
   after_create :create_job
-  after_destroy :delete_log
+  after_destroy :delete_build_data
 
   def process
     #return unless status.to_sym == :waiting
@@ -39,17 +39,17 @@ class Build < ActiveRecord::Base
   end
 
   def log_path
-    (Rails.root + 'shared' + 'builds' + "#{self.id}.log").to_s
+    build_path + "/build.log"
   end
 
   def build_path
-    path = (Rails.root + 'shared' + 'builds' + self.id.to_s).to_s
+    (Rails.root + 'shared' + 'builds' + self.id.to_s).to_s
   end
 
   private
 
-  def delete_log
-    File.remove log_path, :force => true
+  def delete_build_data
+   Dir.remove build_path, :force => true
   end
 
   def create_job
