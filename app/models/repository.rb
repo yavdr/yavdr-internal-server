@@ -4,7 +4,7 @@ class Repository < ActiveRecord::Base
   validates :build_type, :inclusion => {:in => ['autobuild', 'buildable']}, :allow_nil => true, :allow_blank => true
   validates :section, :presence => true, :inclusion => {:in => YavdrInternalServer::SECTIONS}
 
-  attr_accessible :build_type
+  attr_accessible :build_type, :section
 
   default_scope order(:name)
   scope :buildables, where("build_type = ? OR build_type = ?", 'autobuild', 'buildable')
