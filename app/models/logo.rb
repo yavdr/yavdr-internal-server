@@ -1,3 +1,5 @@
+require 'paperclip/convert_vdr1'
+
 class Logo < ActiveRecord::Base
   has_many :names, :class_name => "LogoName", :dependent => :destroy
 
@@ -5,16 +7,21 @@ class Logo < ActiveRecord::Base
                     :path => "public/system/:class/:id/:style.:extension",
                     :url => "/system/:class/:id/:style.:extension",
                     :styles => {
-                      :sd => {
-                        :geometry => "117x88!",
-                        :format => 'png'
-                      },
-                      :hd => {
+#                      :sd => {
+#                        :geometry => "117x88!",
+#                        :format => 'png'
+#                      },
+#                      :hd => {
+#                        :geometry => "260x146!",
+#                        :format => 'png'
+#                      },
+                      :vdr1 => {
                         :geometry => "260x146!",
-                        :format => 'png'
-                      },
-                      :vdr1 => "260x146! -depth 4 -channel RGBA"
+                        :format => 'png',
+                        :processors => [:thumbnail, :convert_vdr1]
+                      }
                     }
+#"117x88! -channel RGBA" # (( +clone  -alpha extract -draw 'fill black polygon 0,0 0,15 15,0 fill white circle 15,15 15,0' ( +clone -flip ) -compose Multiply -composite ( +clone -flop ) -compose Multiply -composite) -alpha off -compose CopyOpacity -composite)
 
   accepts_nested_attributes_for :names, :allow_destroy => true
 
