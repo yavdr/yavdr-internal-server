@@ -4,7 +4,11 @@
     %table
       %tr
         %td.label= Logo.human_attribute_name :current_logo
-        %td= image_tag @logo.logo.url
+        %td
+          %p{:style=>"font-weight: bold"} Original
+          %p= image_tag @logo.logo.url
+          %p{:style=>"font-weight: bold"} VDR1 (260x146)
+          %p= image_tag @logo.logo.url(:vdr1)
       %tr
         %td.label= Logo.human_attribute_name :names
         %td

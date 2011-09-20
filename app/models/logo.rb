@@ -6,13 +6,14 @@ class Logo < ActiveRecord::Base
                     :url => "/system/:class/:id/:style.:extension",
                     :styles => {
                       :sd => {
-                        :geometry => "117x88",
+                        :geometry => "117x88!",
                         :format => 'png'
                       },
                       :hd => {
-                        :geometry => "260x146",
+                        :geometry => "260x146!",
                         :format => 'png'
-                      }
+                      },
+                      :vdr1 => "260x146! -depth 4 -channel RGBA"
                     }
 
   accepts_nested_attributes_for :names, :allow_destroy => true
@@ -30,7 +31,7 @@ class Logo < ActiveRecord::Base
           logo.names.order("LOWER(name)").each do |name|
             if file.blank?
               file = "#{name.name}.png"
-              FileUtils.cp(Rails.root.join(logo.logo.path), "logos/#{file}")
+              FileUtils.cp(Rails.root.join(logo.logo.path(:vdr1)), "logos/#{file}")
             else
               FileUtils.ln_s("#{file}", "logos/#{name.name}.png")
             end
