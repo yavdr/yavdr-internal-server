@@ -13,7 +13,8 @@ class Github::ApiController < ApplicationController
             {
               :repository_id => repository.id,
               :dist => build_mapping.dist,
-              :stage => build_mapping.stage
+              :stage => build_mapping.stage,
+              :branch => branch
             }
           )
         end
