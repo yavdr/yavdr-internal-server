@@ -10,7 +10,7 @@ gem 'paperclip'
 gem 'haml'
 gem 'rmagick'
 gem "cocaine", "~> 0.2.0"
-gem 'nested_form', :git => 'git://github.com/ryanb/nested_form.git'
+gem 'nested_form'#, :git => 'git://github.com/ryanb/nested_form.git'
 gem 'pg'
 gem "cancan"
 gem 'devise'
