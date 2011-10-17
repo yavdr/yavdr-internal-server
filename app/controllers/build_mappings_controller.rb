@@ -20,4 +20,12 @@ class BuildMappingsController < ApplicationController
     redirect_to :build_mappings, :notice => t('controller.build_mappings.destroyed')
   end
 
+  def update
+    if @build_mapping.update_attributes params[:build_mapping]
+      redirect_to :build_mappings, :notice => t('controller.build_mappings.updated')
+    else
+      render :edit
+    end
+  end
+
 end
