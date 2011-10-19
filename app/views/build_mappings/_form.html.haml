@@ -7,10 +7,10 @@
       %td= f.text_field :branch
     %tr
       %td.label= f.label :stage
-      %td= f.select :stage, [['Unstable', 'unstable'], ['Testing', 'testing'], ['Stable', 'stable']]
+      %td= f.select :stage, YavdrInternalServer::STAGES
     %tr
       %td.label= f.label :dist
-      %td= f.select :dist, [['Natty', 'natty'], ['Oneiric', 'oneiric'], ['Precise', 'precise']]
+      %td= f.select :dist, YavdrInternalServer::DISTS
     %tr
       %td.label &#160;
       %td= f.submit
