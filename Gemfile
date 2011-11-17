@@ -5,12 +5,12 @@ gem 'rails', '3.1.1'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+#gem 'sqlite3'
 gem 'paperclip'
 gem 'haml'
 gem 'rmagick'
 gem "cocaine", "~> 0.2.0"
-gem 'nested_form'#, :git => 'git://github.com/ryanb/nested_form.git'
+gem 'nested_form', :git => 'git://github.com/ryanb/nested_form.git'
 gem 'pg'
 gem "cancan"
 gem 'devise'

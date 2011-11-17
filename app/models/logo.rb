@@ -16,7 +16,7 @@ class Logo < ActiveRecord::Base
 #                        :format => 'png'
 #                      },
                       :vdr1 => {
-                        :geometry => "260x146!",
+                        :geometry => "260x146#",
                         :format => 'png',
                         :processors => [:thumbnail, :convert_vdr1]
                       }
@@ -38,9 +38,13 @@ class Logo < ActiveRecord::Base
           logo.names.order("LOWER(name)").each do |name|
             if file.blank?
               file = "#{name.name}.png"
+              dirname = File.dirname("logos/#{file}")
+              FileUtils.mkdir_p(dirname)
               FileUtils.cp(Rails.root.join(logo.logo.path(:vdr1)), "logos/#{file}")
             else
-              FileUtils.ln_s("#{file}", "logos/#{name.name}.png")
+              dirname = File.dirname("logos/#{name.name}.png")
+              FileUtils.mkdir_p(dirname)
+              FileUtils.ln_s("#{(dirname.split('/').count-1).times.collect{ '../' }.join}#{file}", "logos/#{name.name}.png")
             end
 
           end
