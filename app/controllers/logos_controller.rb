@@ -38,7 +38,7 @@ class LogosController < ApplicationController
 
   def export
     x = Logo.archive
-    send_file x, :type => 'application/x-tar', :filename => 'logos.tar.gz'
+    send_file x, :type => 'application/x-tar', :filename => "vdr-channel-logos.tar.gz"
   end
 
   private

@@ -15,11 +15,11 @@ class Logo < ActiveRecord::Base
 #                        :geometry => "260x146!",
 #                        :format => 'png'
 #                      },
-                      :vdr1 => {
-                        :geometry => "260x146#",
-                        :format => 'png',
-                        :processors => [:thumbnail, :convert_vdr1]
-                      }
+:vdr1 => {
+  :geometry => "260x146#",
+  :format => 'png',
+  :processors => [:thumbnail, :convert_vdr1]
+}
                     }
 #"117x88! -channel RGBA" # (( +clone  -alpha extract -draw 'fill black polygon 0,0 0,15 15,0 fill white circle 15,15 15,0' ( +clone -flip ) -compose Multiply -composite ( +clone -flop ) -compose Multiply -composite) -alpha off -compose CopyOpacity -composite)
 
@@ -32,24 +32,25 @@ class Logo < ActiveRecord::Base
 
     Dir.mktmpdir do |tmp|
       FileUtils.chdir(tmp) do
-        FileUtils.mkdir_p "logos"
+        FileUtils.mkdir_p "vdr-channel-logos/logos"
+        FileUtils.cp_r Rails.root.join("resource/debian-logo"), "vdr-channel-logos/debian"
         all.each do |logo|
           file = ""
           logo.names.order("LOWER(name)").each do |name|
             if file.blank?
               file = "#{name.name}.png"
-              dirname = File.dirname("logos/#{file}")
+              dirname = File.dirname("vdr-channel-logos/logos/#{file}")
               FileUtils.mkdir_p(dirname)
-              FileUtils.cp(Rails.root.join(logo.logo.path(:vdr1)), "logos/#{file}")
+              FileUtils.cp(Rails.root.join(logo.logo.path(:vdr1)), "vdr-channel-logos/logos/#{file}")
             else
-              dirname = File.dirname("logos/#{name.name}.png")
+              dirname = File.dirname("vdr-channel-logos/logos/#{name.name}.png")
               FileUtils.mkdir_p(dirname)
-              FileUtils.ln_s("#{(dirname.split('/').count-1).times.collect{ '../' }.join}#{file}", "logos/#{name.name}.png")
+              FileUtils.ln_s("#{(dirname.split('/').count-1).times.collect { '../' }.join}#{file}", "vdr-channel-logos/logos/#{name.name}.png")
             end
 
           end
         end
-        Cocaine::CommandLine.new('tar', ['cvzf', tar_file.path, "logos"].join(' ')).run
+        Cocaine::CommandLine.new('tar', ['cvzf', tar_file.path, "vdr-channel-logos"].join(' ')).run
 
       end
     end
