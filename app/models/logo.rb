@@ -34,6 +34,10 @@ class Logo < ActiveRecord::Base
       FileUtils.chdir(tmp) do
         FileUtils.mkdir_p "vdr-channel-logos/logos"
         FileUtils.cp_r Rails.root.join("resource/debian-logo"), "vdr-channel-logos/debian"
+        FileUtils.chdir("#{tmp}/vdr-channel-logos") do
+          `pwd`
+          `DEBFULLNAME='No name' DEBEMAIL=example@example.org dch --create -u medium --package vdr-channel-logos -v '#{Date.today.strftime("%Y%m%d")}' 'Initial release'`
+        end
         all.each do |logo|
           file = ""
           logo.names.order("LOWER(name)").each do |name|
