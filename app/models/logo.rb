@@ -49,7 +49,7 @@ class Logo < ActiveRecord::Base
             else
               dirname = File.dirname("vdr-channel-logos/logos/#{name.name}.png")
               FileUtils.mkdir_p(dirname)
-              FileUtils.ln_s("#{(dirname.split('/').count-1).times.collect { '../' }.join}#{file}", "vdr-channel-logos/logos/#{name.name}.png")
+              FileUtils.ln_s("#{(dirname.split('/').count-2).times.collect { '../' }.join}#{file}", "vdr-channel-logos/logos/#{name.name}.png")
             end
 
           end
